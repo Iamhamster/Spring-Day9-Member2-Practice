@@ -15,27 +15,27 @@ import java.util.List;
 public class MemberController {
     private final MemberService memberService;
 
-    @PostMapping("/member")
+    @PostMapping("/members")
     public ResponseEntity<MemberResponseDto> saveMember(@RequestBody MemberRequestDto requestDto){
         return ResponseEntity.ok(memberService.saveMember(requestDto));
     }
 
-    @GetMapping("/member")
+    @GetMapping("/members")
     public ResponseEntity<List<MemberResponseDto>> getMembers(){
         return ResponseEntity.ok(memberService.getMembers());
     }
 
-    @GetMapping("/member/{id}")
+    @GetMapping("/members/{id}")
     public ResponseEntity<MemberResponseDto> getMemberOne(@PathVariable Long id){
         return ResponseEntity.ok(memberService.getMemberOne(id));
     }
 
-    @PutMapping("/member/{id}")
+    @PutMapping("/members/{id}")
     public ResponseEntity<MemberResponseDto> update(@PathVariable Long id, @RequestBody MemberRequestDto dto){
         return ResponseEntity.ok(memberService.update(id, dto));
     }
 
-    @DeleteMapping("/member/{id}")
+    @DeleteMapping("/members/{id}")
     public void delete(@PathVariable Long id){
         memberService.delete(id);
     }
